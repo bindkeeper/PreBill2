@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PreBill</string>
+    <string name="textSize">20sp</string>
+    <string name="delete_bill_dialog_title">Delete Current Bill</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure">Are You Sure?</string>
+</resources>

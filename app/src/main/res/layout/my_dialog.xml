@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+
+
+    <EditText
+        android:id="@+id/editDialogText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="Enter Item Name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />/>
+
+    <Button
+        android:id="@+id/editDialogButtonOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Ok "
+        android:layout_below="@+id/editDialogPrice"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editDialogPrice"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editDialogText"
+        android:hint="Enter Price" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/editDialogCancel"
+        android:layout_alignTop="@+id/editDialogButtonOK"
+        android:layout_alignRight="@+id/editDialogPrice"
+        android:layout_alignEnd="@+id/editDialogPrice" />
+
+</RelativeLayout>
