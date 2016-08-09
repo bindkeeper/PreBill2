@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         return items.size();
     }
 
-    public class Holder extends RecyclerView.ViewHolder implements View.OnFocusChangeListener, View.OnLongClickListener {
+    public class Holder extends RecyclerView.ViewHolder implements  View.OnLongClickListener {
 
         private TextView name, price;
         private TextView id;
@@ -67,31 +66,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
             name.setText(item.getName());
             price.setText(""+item.getPrice());
             id.setText(""+(getAdapterPosition()+1));
-        }
-
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-            if (!hasFocus) {
-                DBHelper helper = new DBHelper(context);
-                switch (v.getId()) {
-                    case R.id.itemName:
-                        String newName = ((EditText) v).getText().toString();
-
-                        items.get(getAdapterPosition()).setName(newName);
-
-                        helper.updateName(items.get(getAdapterPosition()).getId(), newName);
-                        notifyItemChanged(getAdapterPosition());
-                        break;
-                    case R.id.itemPrice:
-                        String newPrice = ((EditText) v).getText().toString();
-
-                        items.get(getAdapterPosition()).setPrice(Float.parseFloat(newPrice));
-
-                        helper.updatePrice(items.get(getAdapterPosition()).getId(), newPrice);
-                        notifyItemChanged(getAdapterPosition());
-                        break;
-                }
-            }
         }
 
         @Override
