@@ -62,8 +62,15 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-//            case R.id.settings:
-//                break;
+
+            case R.id.menuAddReceipt:
+                Toast.makeText(MainActivity.this, "Add Clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.menuSettings:
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                break;
 
             case R.id.menuDelete:
                 deleteCurrentReceipt();
