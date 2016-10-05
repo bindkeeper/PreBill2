@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/bill_settings"
+        android:key="pref_key_storage_settings">
+        <CheckBoxPreference
+            android:key="pref_checkbox"
+            android:title="@string/pref_checkbox"
+            android:summary="@string/pref_checkbox_summ"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>
