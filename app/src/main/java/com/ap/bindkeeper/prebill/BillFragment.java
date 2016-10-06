@@ -27,7 +27,7 @@ import java.util.Locale;
  * Activities that contain this fragment must implement the
  * {@link BillFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BillFragment#newInstance} factory method to
+ * Use the {@link BillFragment#newBillFragmentInstance} factory method to
  * create an instance of this fragment.
  */
 public class BillFragment extends Fragment {
