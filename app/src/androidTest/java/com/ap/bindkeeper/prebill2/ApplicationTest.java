@@ -1,4 +1,4 @@
-package com.ap.bindkeeper.prebill;
+package com.ap.bindkeeper.prebill2;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

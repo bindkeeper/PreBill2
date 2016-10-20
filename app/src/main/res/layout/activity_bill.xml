@@ -7,6 +7,6 @@
         android:id="@+id/headlines_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.ap.bindkeeper.prebill.BillFragment"/>
+        class="com.ap.bindkeeper.prebill2.BillFragment"/>
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.ap.bindkeeper.prebill;
+package com.ap.bindkeeper.prebill2;
 
 
 import android.content.Intent;
@@ -46,10 +46,6 @@ public class MainActivity extends AppCompatActivity implements BillFragment.OnFr
                 //Toast.makeText(MainActivity.this, "Add Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.menuSettings:
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                break;
 
 
         }

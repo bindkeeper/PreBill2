@@ -13,13 +13,5 @@
         app:showAsAction="always"
         />
 
-    <item
-        android:id="@+id/menuSettings"
-        android:icon="@drawable/wrench"
-        android:title="Settings"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        />
-
 
 </menu>
