@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 /**
@@ -20,11 +19,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
 
     ArrayList<Item> items = new ArrayList<>();
     ArrayList<RecyclerAdapter.Holder> holders = new ArrayList<>();
+    int billId;
     Context context;
 
-    public RecyclerAdapter(ArrayList<Item> items, Context context) {
+    public RecyclerAdapter(ArrayList<Item> items, Context context, int billId) {
         this.items = items;
         this.context = context;
+        this.billId = billId;
 
         DataChangedReceiver receiver = new DataChangedReceiver();
         IntentFilter filter = new IntentFilter(DBHelper.dataChanged);
@@ -81,7 +82,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         @Override
         public void onReceive(Context context, Intent intent) {
             DBHelper helper = new DBHelper(context);
-            items = helper.getItems();
+            items = helper.getItems(billId);
             notifyDataSetChanged();
         }
     }

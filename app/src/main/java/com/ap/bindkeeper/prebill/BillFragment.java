@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -44,9 +43,10 @@ public class BillFragment extends Fragment {
     DBHelper helper;
     RecyclerAdapter adapter;
     EditText editName, editPrice;
-    TextView txt_sum;
+    TextView txt_sum, billName;
 
     private OnFragmentInteractionListener mListener;
+    private int billId;
 
     public BillFragment() {
         // Required empty public constructor
@@ -77,9 +77,6 @@ public class BillFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
     }
 
     @Override
@@ -95,9 +92,16 @@ public class BillFragment extends Fragment {
 
         helper = new DBHelper(getContext());
         txt_sum = ((TextView) view.findViewById(R.id.txt_sum));
+        billName = (TextView) view.findViewById(R.id.billNameText);
+
         editName = (EditText) view.findViewById(R.id.editNewName);
         editPrice = (EditText) view.findViewById(R.id.editNewPrice);
 
+        billId = ((BillActivity) getContext()).getBillId();
+        Bill bill = helper.getBill(billId);
+        if (bill != null) {
+            billName.setText(helper.getBill(billId).getBillName());
+        }
         setAdapter();
         view.findViewById(R.id.btnEnter).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +121,10 @@ public class BillFragment extends Fragment {
     }
 
     private void setAdapter() {
-        adapter = new RecyclerAdapter(helper.getItems(), getContext());
+
+
+
+        adapter = new RecyclerAdapter(helper.getItems(billId), getContext(), billId);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
     }
@@ -141,7 +148,7 @@ public class BillFragment extends Fragment {
             price = 0.0f;
         }
         DBHelper helper = new DBHelper(getContext());
-        helper.addItem(new Item(name , price));
+        helper.addItem(new Item(name , price), billId);
         editName.setText("");
         editPrice.setText("");
     }
@@ -182,7 +189,8 @@ public class BillFragment extends Fragment {
 
 
     private void calcSum() {
-        ArrayList<Item> items = helper.getItems();
+
+        ArrayList<Item> items = helper.getItems(billId);
         int size = items.size();
         float sum = 0.0f;
         for ( int i = 0; i < size; i++) {
